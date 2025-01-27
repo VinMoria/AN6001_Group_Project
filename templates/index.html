@@ -1,15 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tool Box</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<div class="container">
-		<h2>Wealth Management</h2>
-		<p>Please enter user name : </p>
-		<form action="/main" method="post">
-			<p><input type="text" name="q"></p>
-			<p><input type="submit" value="Enter"></p>
-		</form>
-	</div>
+    <div id="chat-app">
+        <div id="chat-window">
+            <div id="messages"></div>
+        </div>
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="./static/app.js"></script>
 </body>
+</html>

@@ -1,19 +1,22 @@
-#
-# sync code space is very high risk, sometimes fail
-
-from flask import Flask
-from flask import render_template, request
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET","POST"])
+# Route for the chat application UI
+@app.route('/')
 def index():
-	return(render_template("index.html"))
+    return render_template('index.html')  # Ensure this matches your HTML filename
 
-@app.route("/main", methods=["GET","POST"])
-def main():
-	name = request.form.get("q")
-	return(render_template("main.html"))
+# API endpoint for handling chat messages
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_message = request.json.get('message')
+    if not user_message:
+        return jsonify({'error': 'No message provided'}), 400
 
-if __name__ == "__main__":
-	app.run(port=1111)
+    # Simulate a bot response (can replace with real logic later)
+    bot_response = f"Echo: {user_message}"
+    return jsonify({'response': bot_response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
