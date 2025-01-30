@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tool Box</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI Tool Box</title>
+	<link rel="stylesheet" href="static/styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="static/script.js" type="module"></script>
 </head>
+
 <body>
-    <div id="chat-app">
-        <div id="chat-window">
-            <div id="messages"></div>
-        </div>
-        <form id="chat-form">
-            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
-            <button type="submit">Send</button>
-        </form>
-    </div>
-    <script src="./static/app.js"></script>
+	<div class="sidebar">
+		<h3>Config</h3>
+
+		<h4>Model:</h4>
+		<select id="modelSelect">
+			<option value="gpt-4o-mini" selected>GPT-4o mini</option>
+			<option value="gpt-4o">GPT-4o</option> <!-- 默认选中 -->
+			<option value="DALLE">DALLE</option>
+		</select>
+
+		<h4>API key:</h4>
+		<input id="apiKeyInput" type="password">
+	</div>
+	<div class="chat-container">
+		<div class="chat-box" id="chat-box"></div>
+		<div class="input-container">
+			<input type="text" id="chat-input" placeholder="Input your message...">
+			<button onclick="sendMessage()">Send</button>
+		</div>
+	</div>
 </body>
+
 </html>
