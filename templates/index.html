@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AI Tool Box</title>
 	<link rel="stylesheet" href="static/styles.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script src="static/script.js"></script>
 </head>
@@ -17,9 +18,10 @@
 
 		<h4>Model:</h4>
 		<select id="modelSelect">
-			<option value="gpt-4o-mini" selected>GPT-4o mini</option>
-			<option value="gpt-4o">GPT-4o</option> <!-- 默认选中 -->
-			<option value="DALLE">DALLE</option>
+			<option value="gpt-4o-mini" selected>GPT-4o mini</option> <!-- 默认选中 -->
+			<option value="gpt-4o">GPT-4o</option>
+			<option value="dall-e-2">DALLE2</option>
+			<option value="dall-e-3">DALLE3</option>
 		</select>
 
 		<h4>API key:</h4>
@@ -28,8 +30,9 @@
 	<div class="chat-container">
 		<div class="chat-box" id="chat-box"></div>
 		<div class="input-container">
-			<input type="text" id="chat-input" placeholder="Input your message...">
+			<input type="text" id="chat-input" placeholder="Ask AI...">
 			<button onclick="sendMessage()">Send</button>
+			<button onclick="generateMdFromMessage()">Gen MD</button>
 		</div>
 	</div>
 </body>
