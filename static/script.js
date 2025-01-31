@@ -1,7 +1,6 @@
 
 /*
 TODO
-loading动画
 折叠侧边栏
 */
 
@@ -98,6 +97,7 @@ function addMessageToChatBox(message, sender) {
 	msgElement.style.margin = "5px 0";
 	msgElement.style.background = "#fff";
 	msgElement.style.borderRadius = "5px";
+	msgElement.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.3)";
 	chatBox.appendChild(msgElement);
 	chatBox.scrollTop = chatBox.scrollHeight;
 	if (sender == "Bot") {
@@ -107,7 +107,12 @@ function addMessageToChatBox(message, sender) {
 
 	if (sender == "User") {
 		msgElement.style.color = "#fff";
-		msgElement.style.background = "#1e6eff";
+		if(GPT_LIST.includes(chatRecords[0].model)){
+			msgElement.style.background = "#1e6eff";
+		}else if(AIG_LIST.includes(chatRecords[0].model)){
+			msgElement.style.background = "#ba2f7b";
+		}
+		
 	}
 
 	if (sender == "System") {
@@ -121,6 +126,8 @@ function addImageToChatBox(imageUrl) {
 	let imgElement = document.createElement("img");
 	imgElement.src = imageUrl;
 	imgElement.style.maxWidth = "30%";
+	imgElement.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.3)";
+	imgElement.style.borderRadius = "5px";
 	chatBox.appendChild(imgElement);
 	chatBox.scrollTop = chatBox.scrollHeight;
 }

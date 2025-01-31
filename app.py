@@ -16,7 +16,7 @@ def index():
 def get_image(filename):
     return send_from_directory('static/images', filename)
 
-# 对话逻辑
+# 文本生成
 @app.route('/chat', methods=['POST'])
 def chat():
 	receive_message = request.get_json()  # 解析 JSON 数据
@@ -32,6 +32,7 @@ def chat():
 
 	return jsonify({'response': bot_response})
 
+# 图片生成
 @app.route('/gen_image', methods=['POST'])
 def gen_image():
 	receive_message = request.get_json()
