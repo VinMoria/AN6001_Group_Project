@@ -5,7 +5,7 @@ TODO
 */
 
 const chatRecords = [{ "model": "gpt-4o-mini", "api_key": "" }];
-const GPT_LIST = ["gpt-4o", "gpt-4o-mini"]
+const GPT_LIST = ["gpt-4o", "gpt-4o-mini","deepseek-chat","deepseek-reasoner"]
 const AIG_LIST = ["dall-e-3", "dall-e-2"]
 
 window.onload = function () {
