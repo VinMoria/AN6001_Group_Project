@@ -1,14 +1,13 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="sk-wvpnzlshtibibtoneqhbrrhvfhbrhbhbpjsitidijifzwtpd", base_url="https://api.siliconflow.cn")
 
 response = client.chat.completions.create(
-    model="deepseek-chat",
+    model="deepseek-ai/DeepSeek-R1",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "Hello"},
+        {"role": "user", "content": "你好"}
     ],
     stream=False
 )
 
-print(response.choices[0].message.content)
+print(response.model_dump_json())
