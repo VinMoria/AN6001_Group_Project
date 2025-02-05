@@ -90,34 +90,36 @@ function removeLoadingGif() {
 
 // 将发送的消息显示在前端 
 function addMessageToChatBox(message, sender) {
-	let chatBox = document.getElementById("chat-box");
-	let msgElement = document.createElement("div");
-	msgElement.textContent = message;
-	msgElement.style.padding = "10px";
-	msgElement.style.margin = "5px 0";
-	msgElement.style.background = "#fff";
-	msgElement.style.borderRadius = "5px";
-	msgElement.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.3)";
-	chatBox.appendChild(msgElement);
-	chatBox.scrollTop = chatBox.scrollHeight;
-	if (sender == "Bot") {
-		msgElement.innerHTML = marked.parse(message, { sanitize: false });
-		msgElement.className = "markdown-body";
-	}
+    let chatBox = document.getElementById("chat-box");
+    let msgElement = document.createElement("div");
+    msgElement.innerHTML = message.replace(/\n/g, "<br>");
+    msgElement.style.padding = "10px";
+    msgElement.style.margin = "5px 0";
+    msgElement.style.background = "#333"; // 深色背景
+    msgElement.style.borderRadius = "5px";
+    msgElement.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)"; // 修改阴影颜色
+    chatBox.appendChild(msgElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
 
-	if (sender == "User") {
-		msgElement.style.color = "#fff";
-		if(GPT_LIST.includes(chatRecords[0].model)){
-			msgElement.style.background = "#1e6eff";
-		}else if(AIG_LIST.includes(chatRecords[0].model)){
-			msgElement.style.background = "#ba2f7b";
-		}
-		
-	}
+    if (sender == "Bot") {
+        msgElement.innerHTML = marked.parse(message, { sanitize: false });
+        msgElement.className = "markdown-body";
+		msgElement.style.color = "#fff"
+    }
 
-	if (sender == "System") {
-		msgElement.style.color = "#fd7199";
-	}
+    if (sender == "User") {
+        msgElement.style.color = "#fff"; // 用户消息字体为白色
+		//msgElement.innerHTML = message.replace(/\n/g, "<br>").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        if (GPT_LIST.includes(chatRecords[0].model)) {
+            msgElement.style.background = "#144a74"; // 深色背景色
+        } else if (AIG_LIST.includes(chatRecords[0].model)) {
+            msgElement.style.background = "#681752"; // 深色背景色
+        }
+    }
+
+    if (sender == "System") {
+        msgElement.style.color = "#fd7199"; // 系统消息字体颜色
+    }
 }
 
 //将图片链接显示到前端

@@ -5,9 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AI Tool Box</title>
-	<link rel="stylesheet" href="static/styles.css">
+
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+	<link rel="stylesheet" href="static/styles.css">
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script src="static/script.js"></script>
 </head>
@@ -25,12 +26,12 @@
 		</select>
 
 		<h4>API key:</h4>
-		<input style="margin: 10px 0;"  id="apiKeyInput" type="password">
+		<input style="margin: 10px 0;" id="apiKeyInput" type="password">
 	</div>
 	<div class="chat-container">
 		<div class="chat-box" id="chat-box"></div>
 		<div class="input-container">
-			<input type="text" id="chat-input" placeholder="Ask AI...">
+			<textarea id="chat-input" placeholder="Ask AI..." rows="2"></textarea>
 			<button onclick="sendMessage()">Send</button>
 			<button onclick="generateMdFromMessage()">Gen MD</button>
 		</div>
